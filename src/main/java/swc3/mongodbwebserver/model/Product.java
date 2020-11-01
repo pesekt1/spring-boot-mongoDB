@@ -15,18 +15,12 @@ public class Product {
     @Id
     private String id;
     private String name;
-//    private int quantityInStock;
-//    private double unitPrice;
     private int quantity_in_stock;
     private double unit_price;
 
     public Product(String name, int quantityInStock, double unitPrice) {
         this.name = name;
-//        this.quantityInStock = quantityInStock;
-//        this.unitPrice = unitPrice;
         this.quantity_in_stock = quantityInStock;
         this.unit_price = unitPrice;
     }
-
-    public Product(){};
 }
