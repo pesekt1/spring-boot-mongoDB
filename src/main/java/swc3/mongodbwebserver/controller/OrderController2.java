@@ -34,6 +34,7 @@ public class OrderController2 {
                 item.getProduct().setName(product.getName());
                 item.getProduct().setQuantity_in_stock(product.getQuantity_in_stock());
                 item.getProduct().setUnit_price(product.getUnit_price());
+                //we could as well just use item.setProduct(product)...
             }
 
             Order orderSaved = orderRepository.save(order);

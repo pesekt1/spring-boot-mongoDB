@@ -18,7 +18,6 @@ public class ProductController {
     @PostMapping("/products")
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         try {
-            //Product productNew = new Product(product.getName(),product.getQuantityInStock(),product.getUnitPrice());
             Product productNew = new Product(product.getName(),product.getQuantity_in_stock(),product.getUnit_price());
             Product productSaved = productRepository.save(productNew);
             return new ResponseEntity<>(productSaved, HttpStatus.CREATED);
@@ -26,5 +25,4 @@ public class ProductController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
 }
