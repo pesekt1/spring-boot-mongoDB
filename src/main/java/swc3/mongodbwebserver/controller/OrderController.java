@@ -5,8 +5,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import swc3.mongodbwebserver.model.Order;
+import swc3.mongodbwebserver.model.Tutorial;
 import swc3.mongodbwebserver.repository.OrderRepository;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -57,7 +59,13 @@ public class OrderController {
     @GetMapping("/orders")
     public ResponseEntity<List<Order>> getAllOrders() {
         try {
-            List<Order> orders = orderRepository.findAll();
+            List<Order> orders = new ArrayList<Order>();
+            orders.addAll(orderRepository.findAll());
+
+            if (orders.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+
             return new ResponseEntity<>(orders, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
