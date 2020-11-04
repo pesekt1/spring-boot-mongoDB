@@ -14,9 +14,9 @@
     <name>mongodb-webserver</name>
     <description>Spring Boot with MongoDB</description>
 
-    <properties>
-        <java.version>11</java.version>
-    </properties>
+<!--    <properties>-->
+<!--        <java.version>11</java.version>-->
+<!--    </properties>-->
 
     <dependencies>
         <dependency>
