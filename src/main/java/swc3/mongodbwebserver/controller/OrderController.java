@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import swc3.mongodbwebserver.model.Customer;
 import swc3.mongodbwebserver.model.Order;
 import swc3.mongodbwebserver.model.Tutorial;
+import swc3.mongodbwebserver.repository.CustomerRepository;
 import swc3.mongodbwebserver.repository.OrderRepository;
 
 import java.util.ArrayList;
@@ -56,6 +58,9 @@ public class OrderController {
     @Autowired
     OrderRepository orderRepository;
 
+    @Autowired
+    CustomerRepository customerRepository;
+
     @GetMapping("/orders")
     public ResponseEntity<List<Order>> getAllOrders() {
         try {
@@ -75,6 +80,8 @@ public class OrderController {
     @PostMapping("/orders")
     public ResponseEntity<Order> createOrder(@RequestBody Order order) {
         try {
+            //Customer customer = customerRepository.findById(order.getCustomerId()).orElseThrow();
+
             Order orderSaved = orderRepository.save(order);
             return new ResponseEntity<>(orderSaved, HttpStatus.CREATED);
         } catch (Exception e) {

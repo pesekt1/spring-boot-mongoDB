@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.sql.Date;
+import java.util.Collection;
 
 @Getter
 @Setter
@@ -22,9 +23,10 @@ public class Order {
     private String customerId;
     private String orderStatus;
     private String shipperName;
-    private OrderItem[] items;
+    //private OrderItem[] items;
+    Collection<OrderItem> items;
 
-    public Order(Date orderDate, String comments, Date shippedDate, String customerId, String orderStatus, String shipperName, OrderItem[] items) {
+    public Order(Date orderDate, String comments, Date shippedDate, String customerId, String orderStatus, String shipperName, Collection<OrderItem> items) {
         this.orderDate = orderDate;
         this.comments = comments;
         this.shippedDate = shippedDate;
