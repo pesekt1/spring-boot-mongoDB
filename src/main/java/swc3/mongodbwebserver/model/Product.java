@@ -18,9 +18,9 @@ public class Product {
     private int quantity_in_stock;
     private double unit_price;
 
-    public Product(String name, int quantityInStock, double unitPrice) {
+    public Product(String name, int quantity_in_stock, double unit_price) {
         this.name = name;
-        this.quantity_in_stock = quantityInStock;
-        this.unit_price = unitPrice;
+        this.quantity_in_stock = quantity_in_stock;
+        this.unit_price = unit_price;
     }
 }
