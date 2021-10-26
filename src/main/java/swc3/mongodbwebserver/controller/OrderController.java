@@ -4,14 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import swc3.mongodbwebserver.model.Customer;
 import swc3.mongodbwebserver.model.Order;
-import swc3.mongodbwebserver.model.Tutorial;
 import swc3.mongodbwebserver.repository.CustomerRepository;
 import swc3.mongodbwebserver.repository.OrderRepository;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 //this controller expect all the info structure of the order document - example:
