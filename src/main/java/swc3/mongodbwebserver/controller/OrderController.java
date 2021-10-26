@@ -47,7 +47,7 @@ import java.util.List;
 //        ]
 //}
 
-@CrossOrigin(origins = "http://localhost:8081")
+//@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/api")
 public class OrderController {
@@ -61,8 +61,7 @@ public class OrderController {
     @GetMapping("/orders")
     public ResponseEntity<List<Order>> getAllOrders() {
         try {
-            List<Order> orders = new ArrayList<Order>();
-            orders.addAll(orderRepository.findAll());
+            List<Order> orders = new ArrayList<>(orderRepository.findAll());
 
             if (orders.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -77,8 +76,6 @@ public class OrderController {
     @PostMapping("/orders")
     public ResponseEntity<Order> createOrder(@RequestBody Order order) {
         try {
-            //Customer customer = customerRepository.findById(order.getCustomerId()).orElseThrow();
-
             Order orderSaved = orderRepository.save(order);
             return new ResponseEntity<>(orderSaved, HttpStatus.CREATED);
         } catch (Exception e) {
